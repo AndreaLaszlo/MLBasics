@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 # our x values - the feature values
 X = np.array([1, 2, 3, 4, 5])
@@ -37,3 +38,10 @@ new_b = 0
 for i in range(1, 10):
     [new_w, new_b] = compute_gradient(new_w, new_b, y, X, 0.01)
     print("The loss is: ", calculate_mse(y, predict(X, new_w, new_b)))
+
+# to see the modell
+plt.scatter(X, y)
+plt.plot(X, predict(X, new_w, new_b))
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.show()
